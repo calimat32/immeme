@@ -4,22 +4,24 @@ from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 def write_on_image(filename, top, bottom):
     background = Image.open("resources/" + filename)
-    drawer = ImageDraw.Draw(background)
-    width = background.size[0]
     height = background.size[1]
-
-    font = ImageFont.truetype("resources/impact.ttf", 36)
-
-    top_location = (get_center_position(top, background), 5)
-    bottom_location = (get_center_position(bottom, background), height-70)
-
-    background.paste(draw_shadow(top), (top_location[0]-5, top_location[1]-5), mask=draw_shadow(top))
-    background.paste(draw_shadow(bottom), (bottom_location[0]-5, bottom_location[1]-5), mask=draw_shadow(bottom))
-
-    drawer.text(top_location, top, "white", font=font)
-    drawer.text(bottom_location, bottom, "white", font=font)
+    write_at_offset(top, 5, background) 
+    write_at_offset(bottom, height-70, background) 
 
     return background
+
+def write_at_offset(text, from_top, image, shadow=True):
+    drawer = ImageDraw.Draw(image)
+    width = image.size[0]
+    height = image.size[1]
+    font = ImageFont.truetype("resources/impact.ttf", 36)
+    location_x = get_center_position(text, image)
+    location_y = from_top
+    location = (location_x, location_y)
+    if shadow:
+        image.paste(draw_shadow(text), (location_x-5, location_y-5), mask=draw_shadow(text))
+    drawer.text(location, text, "white", font=font)
+
 
 def get_center_position(text, image):
     drawer = ImageDraw.Draw(image)
