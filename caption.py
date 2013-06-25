@@ -1,6 +1,8 @@
 #!/usr/bin/python
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import textwrap
+
 
 def write_on_image(filename, top, bottom):
     background = Image.open("resources/" + filename)
@@ -22,7 +24,6 @@ def write_at_offset(text, from_top, image, shadow=True):
         image.paste(draw_shadow(text), (location_x-5, location_y-5), mask=draw_shadow(text))
     drawer.text(location, text, "white", font=font)
 
-
 def get_center_position(text, image):
     drawer = ImageDraw.Draw(image)
     font = ImageFont.truetype("resources/impact.ttf", 36)
@@ -39,6 +40,12 @@ def draw_shadow(text):
     canvas = Image.new("RGBA", (width+10, height+10))
     draw = ImageDraw.Draw(canvas)
     draw.text((5,5), text, "black", font=font)
-    blured = canvas.filter(ImageFilter.GaussianBlur(5))
-    return blured
+    blurred = canvas.filter(ImageFilter.GaussianBlur(5))
+    return blurred
 
+def get_text_size(text, font_size):
+    dummy = Image.new("RGBA", (100,100), (0,0,0,0))
+    dummy_draw = ImageDraw.Draw(dummy)
+    font = ImageFont.truetype("resources/impact.ttf", 36)
+    width, height = dummy_draw.textsize(text,font)
+    return (width, height)
