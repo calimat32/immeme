@@ -11,9 +11,6 @@ def write_on_image(filename, top, bottom):
     max_width = width 
     max_chars = int(max_width/18) # 25 is the average width for the Impact font at 36pt
     text_height = 44 # height for 36pt Impact
-    # write_at_offset(top, 5, background) 
-    # write_at_offset(bottom, height-70, background) 
-
     # Write top
 
     if len(top) > max_chars:
