@@ -6,9 +6,40 @@ import textwrap
 
 def write_on_image(filename, top, bottom):
     background = Image.open("resources/" + filename)
+    width = background.size[0]
     height = background.size[1]
-    write_at_offset(top, 5, background) 
-    write_at_offset(bottom, height-70, background) 
+    max_width = width 
+    max_chars = int(max_width/18) # 25 is the average width for the Impact font at 36pt
+    text_height = 44 # height for 36pt Impact
+    # write_at_offset(top, 5, background) 
+    # write_at_offset(bottom, height-70, background) 
+
+    # Write top
+
+    if len(top) > max_chars:
+        i = 0 # Line counter used in loop
+        for line in textwrap.wrap(top, max_chars):
+            # Draw 5 pixels from the top
+            # Also leave a 5 pixel separation between lines
+            write_at_offset(line, 5 + text_height*i, background)
+            i += 1
+    else:
+        write_at_offset(top, 5, background)
+
+    # Write bottom
+    
+    if len(bottom) > max_chars:
+        # We need to know all text height before we start writing
+        lines = textwrap.wrap(bottom, max_chars)
+        from_bottom = (text_height+5)*len(lines) # text_height + 5 pixels for line separation
+        from_top = height - from_bottom
+        i = 0 # Line counter used in loop
+        for line in lines:
+            write_at_offset(line, from_top + text_height*i, background)
+            i += 1
+    else:
+        write_at_offset(bottom, height - (text_height + 10), background)
+
 
     return background
 
