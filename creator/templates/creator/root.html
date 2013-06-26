@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+    <head>
+        <title>
+        {% block title %}
+        immeme - make memes and upload to imgur
+        {% endblock %}
+        </title>
+        <link href='http://fonts.googleapis.com/css?family=Bitter:700' rel='stylesheet' type='text/css'/>
+        <link rel="stylesheet" type="text/css" href="/static/css/root.css"/>
+        {% block head %}
+        {% endblock %}
+    </head>
+
+    <body>
+        <header>
+            <div id="logo">immeme</div>
+        </header>
+        <div id="container">
+            <nav>
+                <a href="" class="nav_link">home</a>
+                <a href="" class="nav_link">browse</a>
+
+                {% block nav %}
+                {% endblock %}
+
+            </nav>
+            {% block content %}
+            {% endblock %}
+
+        </div>
+    </body>
+</html>

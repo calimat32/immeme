@@ -1,0 +1,9 @@
+{% extends "creator/root.html" %}
+
+{% block content %}
+
+{% for meme in memes %}
+    <img src="static/images/{{ meme.background_file }}"/>
+{% endfor %}
+
+{% endblock %}

@@ -1,0 +1,47 @@
+header {
+    font-family: 'Bitter', sans-serif;
+    font-size: 36px;
+    background: linear-gradient(to bottom, #ffffff 0%,#e5e5e5 100%); /* W3C */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    padding: 4px;
+    height: 50px;
+    border-bottom: 1px solid #b5b5b5
+}
+
+body {
+    margin: 0px;
+}
+
+div#logo {
+    margin-left: 15%;
+    margin-right: 85%;
+}
+
+div#container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1024px;
+}
+
+nav {
+    margin-top: 20px;
+}
+
+a.nav_link {
+    font-family: sans-serif;
+    text-decoration: none;
+    background-color: #dedede;
+    padding: 8px;
+    border-radius: 5px;
+    margin-left: 3px;
+}
+
+a.nav_link:visited {
+    color: black;
+}
+
+a.nav_link:hover {
+    background-color: #c4c4c4;
+}

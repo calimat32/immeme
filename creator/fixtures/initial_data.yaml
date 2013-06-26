@@ -1,0 +1,30 @@
+- model: creator.Meme
+  pk: 1
+  fields:
+    name: Confession Bear
+    background_file: cbear.jpg
+
+- model: creator.Meme
+  pk: 2
+  fields:
+    name: Success Kid
+    background_file: successkid.jpg
+
+- model: creator.Meme
+  pk: 3
+  fields:
+    name: Condescending Wonka
+    background_file: wonka.jpg
+
+- model: creator.Meme
+  pk: 4
+  fields:
+    name: Philosoraptor
+    background_file: philosoraptor.jpg
+
+- model: creator.Meme
+  pk: 5
+  fields:
+    name: Overly Attached Girlfried
+    background_file: attachedgf.jpg
+
