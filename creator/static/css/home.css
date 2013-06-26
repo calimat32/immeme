@@ -1,0 +1,13 @@
+div#image_container {
+    margin-top: 30px;
+}
+
+img.memes {
+    margin: 20px;
+    border: 1px solid grey;
+}
+
+a.memes {
+    text-decoration: none;
+    border: none;
+}

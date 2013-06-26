@@ -1,9 +1,15 @@
 {% extends "creator/root.html" %}
 
+{% block head %}
+    <link rel="stylesheet" type="text/css" href="static/css/home.css" />
+{% endblock %}
+
 {% block content %}
-
+<div id="image_container">
 {% for meme in memes %}
-    <img src="static/images/{{ meme.background_file }}"/>
+    <a class="memes" href="meme/new/{{ meme.id }}">
+    <img class="memes" src="static/images/thumbs/thumb_{{ meme.background_file }}"/>
+    </a>
 {% endfor %}
-
+</div>
 {% endblock %}
