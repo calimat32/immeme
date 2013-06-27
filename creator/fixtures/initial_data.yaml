@@ -1,30 +1,45 @@
-- model: creator.Meme
+- fields: {background_file: cbear.jpg, name: Confession Bear}
+  model: creator.meme
   pk: 1
-  fields:
-    name: Confession Bear
-    background_file: cbear.jpg
-
-- model: creator.Meme
+- fields: {background_file: successkid.jpg, name: Success Kid}
+  model: creator.meme
   pk: 2
-  fields:
-    name: Success Kid
-    background_file: successkid.jpg
-
-- model: creator.Meme
+- fields: {background_file: wonka.jpg, name: Condescending Wonka}
+  model: creator.meme
   pk: 3
-  fields:
-    name: Condescending Wonka
-    background_file: wonka.jpg
-
-- model: creator.Meme
+- fields: {background_file: philosoraptor.jpg, name: Philosoraptor}
+  model: creator.meme
   pk: 4
-  fields:
-    name: Philosoraptor
-    background_file: philosoraptor.jpg
-
-- model: creator.Meme
+- fields: {background_file: attachedgf.jpg, name: Overly Attached Girlfriend}
+  model: creator.meme
   pk: 5
-  fields:
-    name: Overly Attached Girlfried
-    background_file: attachedgf.jpg
-
+- fields: {background_file: facebookgirl.jpg, name: Annoying Facebook Girl}
+  model: creator.meme
+  pk: 6
+- fields: {background_file: foulfrog.jpg, name: Foul Bachelor Frog}
+  model: creator.meme
+  pk: 7
+- fields: {background_file: sawep.jpg, name: Socially Awesome Penguin}
+  model: creator.meme
+  pk: 8
+- fields: {background_file: sawkp.jpg, name: Socially Awkward Penguin}
+  model: creator.meme
+  pk: 9
+- fields: {background_file: sex-o-rhino.jpg, name: Sexually Oblivious Rhino}
+  model: creator.meme
+  pk: 10
+- fields: {background_file: ssteve.jpg, name: Scumbag Steve}
+  model: creator.meme
+  pk: 11
+- fields: {background_file: techduck.jpg, name: Tech Impaired Duck}
+  model: creator.meme
+  pk: 12
+- fields: {background_file: yuno.jpg, name: 'Y U No?'}
+  model: creator.meme
+  pk: 13
+- fields: {background_file: ffoulfrog.jpg, name: Foul Bachelorette Frog}
+  model: creator.meme
+  pk: 14
+- fields: {background_file: amallard.jpg, name: Actual Advice Mallard}
+  model: creator.meme
+  pk: 15
