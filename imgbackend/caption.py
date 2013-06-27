@@ -1,11 +1,22 @@
 #!/usr/bin/python
 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
+import os
 import textwrap
+import StringIO
+import base64
+
+def write_on_image64(filename, top, bottom):
+    image = write_on_image(filename, top, bottom)
+    output = StringIO.StringIO()
+    image.save(output, "PNG")
+    content = output.getvalue()
+    output.close()
+    return content.encode("base64")
 
 
 def write_on_image(filename, top, bottom):
-    background = Image.open("resources/" + filename)
+    background = Image.open(filename)
     width = background.size[0]
     height = background.size[1]
     max_width = width 
