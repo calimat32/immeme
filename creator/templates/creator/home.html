@@ -5,11 +5,14 @@
 {% endblock %}
 
 {% block content %}
-<div id="image_container">
+<ul id="meme_gallery">
 {% for meme in memes %}
+    <li>
     <a class="memes" href="meme/new/{{ meme.id }}">
-    <img class="memes" src="static/images/thumbs/thumb_{{ meme.background_file }}"/>
+        <img class="memes" src="static/images/thumbs/thumb_{{ meme.background_file }}"/>
+        <p class="meme_link"> {{ meme.name }} </p>
     </a>
+    <li>
 {% endfor %}
-</div>
+</ul>
 {% endblock %}
