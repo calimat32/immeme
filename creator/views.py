@@ -1,6 +1,6 @@
 # Create your views here.
 
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext, loader
 from creator.models import Meme
 from django.shortcuts import get_object_or_404
@@ -9,7 +9,7 @@ import sys
 
 sys.path.append('..')
 
-from imgbackend import caption
+from imgbackend import caption, imgur
 
 def create(request, meme_id):
     meme = get_object_or_404(Meme, pk=meme_id)
@@ -20,7 +20,8 @@ def create(request, meme_id):
             bottom_text = form.cleaned_data['bottom_text']
             image = caption.write_on_image64("../immeme/creator/static/images/%s" % meme.background_file, 
                                top_text, bottom_text)
-            return HttpResponse('<img src="data:image/png;base64,' + image + '">')
+            result = imgur.upload_to_imgur(image)
+            return HttpResponseRedirect("http://imgur.com/{image_id}".format(image_id=result))
     else:
         form = MacroForm()
     context = RequestContext(request,{"meme": meme, "form": form})
