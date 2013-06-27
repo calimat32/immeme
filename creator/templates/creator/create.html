@@ -1,0 +1,23 @@
+{% extends "creator/root.html" %}
+
+{% block head %}
+<link rel="stylesheet" type="text/css" href="/static/css/create.css">
+{% endblock %}
+
+{% block content %}
+<div id="content">
+    <div id="image_container">
+    <img src="/static/images/{{ meme.background_file }}"/>
+    </div>
+    
+    <div id="form_container">
+    <p id="meme_name"> {{ meme.name }} </p>
+
+    <form action="" method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="create and upload to imgur"/>
+    </form>
+
+    </div>
+</div>
+{% endblock %}
